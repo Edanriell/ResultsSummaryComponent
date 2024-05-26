@@ -4,20 +4,93 @@
 
 
 <article class={css`
-		background: red;
 		width: 100%;
 		@media (width > 400px) {
 			background: #00bb8f;
 		}
 	`}>
-	<div>
-		<h2>Your Result</h2>
-		<div>
-			<p>76</p>
-			<p>of 100</p>
+	<div class={css`
+			padding: 2.4rem 3rem 4rem;
+			border-radius: 0 0 3.2rem 3.2rem;
+			box-shadow: 0 30px 60px 0 rgba(61, 108, 236, 0.15);
+			background: linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		`}>
+		<h2 class={css`
+			font-family: var(--font-family), sans-serif;
+			font-weight: 700;
+			font-size: 1.8rem;
+			text-align: center;
+			color: var(--light-blue);
+			margin-bottom: 2.4rem;
+		`}>Your Result</h2>
+		<div class={css`
+			width: 14rem;
+			height: 14rem;
+			border-radius: 100%;
+			position: relative;
+			margin-bottom: 2.4rem;
+		`}>
+			<svg
+					class={css`
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 1;
+					`}
+					width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
+				<defs>
+					<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#4D21C9" />
+						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
+						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
+					</linearGradient>
+				</defs>
+			</svg>
+			<div class={css`
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				height: 100%;
+				z-index: 2;
+			`}>
+				<p class={css`
+					font-family: var(--font-family), sans-serif;
+					font-weight: 800;
+					font-size: 56px;
+					line-height: 129%;
+					text-align: center;
+					color: var(--white);
+				`}>76</p>
+				<p class={css`
+					font-family: var(--font-family), sans-serif;
+					font-weight: 700;
+					font-size: 16px;
+					color: var(--light-blue);
+					opacity: 0.52;
+				`}>of 100</p>
+			</div>
 		</div>
-		<p>Great</p>
-		<p>Your performance exceed 65% of the people conducting the test here!</p>
+		<p class={css`
+			font-family: var(--font-family), sans-serif;
+			font-weight: 700;
+			font-size: 24px;
+			text-align: center;
+			color: var(--white);
+			margin-bottom: 0.8rem;
+		`}>Great</p>
+		<p class={css`
+			font-family: var(--font-family), sans-serif;
+			font-weight: 500;
+			font-size: 16px;
+			text-align: center;
+			color: var(--light-blue);
+		`}>Your performance exceed 65% of the people conducting the test here!</p>
 	</div>
 	<div>
 		<p>Summary</p>

@@ -4,7 +4,7 @@
 
 <div class="app">
 	<main class={css`
-		background: var(--very-light-blue);
+		background: var(--white);
 		min-width: 100%;
 		min-height: 100vh;
 		display: flex;

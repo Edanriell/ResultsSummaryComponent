@@ -3,3 +3,43 @@
 @import "sanitize.css";
 @import "sanitize.css/forms.css";
 @import "sanitize.css/typography.css";
+
+:root {
+	--yellow: #ffb21e;
+	--yellow-95-percent-white: #ffb21e;
+	--blue: #1125d6;
+	--blue-95-percent-white: #1125d6;
+	--green: #00bb8f;
+	--green-95-percent-white: #00bb8f;
+	--red: #ff5555;
+	--red-95-percent-white: #ff5555;
+	--dark-navy: #303b59;
+	--light-blue: #cac9ff;
+	--very-light-blue: #ecf2ff;
+	--white: #fff;
+
+	--font-family: "Hanken Grotesk", sans-serif;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}

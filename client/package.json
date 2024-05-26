@@ -35,5 +35,10 @@
 		"vite": "^5.0.3",
 		"vitest": "^1.2.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@emotion/css": "^11.11.2",
+		"sanitize.css": "^13.0.0",
+		"sass": "^1.77.2"
+	}
 }

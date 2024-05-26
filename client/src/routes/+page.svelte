@@ -1,4 +1,5 @@
 <script>
+	import { ResultsSummaryCard } from "@entities/results/ui";
 </script>
 
 <svelte:head>
@@ -8,6 +9,7 @@
 
 <section>
 	<h1>Main page</h1>
+	<ResultsSummaryCard />
 </section>
 
 <style>

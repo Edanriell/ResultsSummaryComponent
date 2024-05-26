@@ -1,5 +1,5 @@
 <script>
-	import { ResultsSummaryCard } from "@entities/results/ui";
+	import { MainPage } from "@pages/main-page";
 </script>
 
 <svelte:head>
@@ -7,10 +7,4 @@
 	<meta name="description" content="Results summary component" />
 </svelte:head>
 
-<section>
-	<h1 class="visually-hidden">Results summary component main page</h1>
-	<ResultsSummaryCard />
-</section>
-
-<style>
-</style>
+<MainPage />

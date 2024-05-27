@@ -156,6 +156,14 @@
 		margin-top: -3.2rem;
 		z-index: 1;
 		position: relative;
+		@media (width >= 768px) {
+			padding: 3.8rem 4rem 4.6rem 7.2rem;
+			margin-top: unset;
+			margin-left: -3.2rem;
+			box-shadow: 0 30px 60px 0 rgba(61, 108, 236, 0.15);
+			border-radius: 0 3.2rem 3.2rem 0;
+			flex: 0 0;
+		}
 	`}>
 		<p class={css`
 			font-family: var(--font-family), sans-serif;
@@ -164,12 +172,20 @@
 			color: var(--dark-navy);
 			margin-bottom: 2.4rem;
 			text-align: left;
+			@media (width >= 768px) {
+				font-size: 2.4rem;
+				margin-bottom: 2.8rem;
+			}
 		`}>Summary</p>
 		<dl class={css`
 			display: flex;
 			flex-direction: column;
 			row-gap: 1.6rem;
 			margin-bottom: 2.4rem;
+			@media (width >= 768px) {
+				min-width: 28.8rem;
+				margin-bottom: 4.1rem;
+			}
 		`}>
 			<div class={css`
 				border-radius: 1.2rem;
@@ -181,6 +197,9 @@
 				justify-content: space-between;
 				padding: 1.6rem 1.7rem 1.8rem;
 				flex-wrap: wrap;
+				@media (width >= 768px) {
+					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+				}
 			`}>
 				<dt class={css`
 					display: flex;
@@ -196,6 +215,9 @@
 						font-weight: 500;
 						font-size: 1.6rem;
 						color: var(--red);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>Reaction</p>
 				</dt>
 				<dd class={css`
@@ -210,6 +232,9 @@
 						font-size: 1.6rem;
 						text-align: right;
 						color: var(--dark-navy);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>80</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
@@ -218,6 +243,9 @@
 						text-align: right;
 						color: var(--dark-navy);
 						opacity: 0.5;
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>/ 100</p>
 				</dd>
 			</div>
@@ -231,6 +259,9 @@
 				justify-content: space-between;
 				padding: 1.6rem 1.7rem 1.8rem;
 				flex-wrap: wrap;
+				@media (width >= 768px) {
+					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+				}
 			`}>
 				<dt class={css`
 					display: flex;
@@ -248,6 +279,9 @@
 						font-weight: 500;
 						font-size: 1.6rem;
 						color: var(--yellow);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>Memory</p>
 				</dt>
 				<dd class={css`
@@ -262,6 +296,9 @@
 						font-size: 1.6rem;
 						text-align: right;
 						color: var(--dark-navy);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>92</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
@@ -270,6 +307,9 @@
 						text-align: right;
 						color: var(--dark-navy);
 						opacity: 0.5;
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>/ 100</p>
 				</dd>
 			</div>
@@ -283,6 +323,9 @@
 				justify-content: space-between;
 				padding: 1.6rem 1.7rem 1.8rem;
 				flex-wrap: wrap;
+				@media (width >= 768px) {
+					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+				}
 			`}>
 				<dt class={css`
 					display: flex;
@@ -298,6 +341,9 @@
 						font-weight: 500;
 						font-size: 1.6rem;
 						color: var(--green);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>Verbal</p>
 				</dt>
 				<dd class={css`
@@ -312,6 +358,9 @@
 						font-size: 1.6rem;
 						text-align: right;
 						color: var(--dark-navy);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>61</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
@@ -320,6 +369,9 @@
 						text-align: right;
 						color: var(--dark-navy);
 						opacity: 0.5;
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>/ 100</p>
 				</dd>
 			</div>
@@ -333,6 +385,9 @@
 				justify-content: space-between;
 				padding: 1.6rem 1.7rem 1.8rem;
 				flex-wrap: wrap;
+				@media (width >= 768px) {
+					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+				}
 			`}>
 				<dt class={css`
 					display: flex;
@@ -349,6 +404,9 @@
 						font-weight: 500;
 						font-size: 1.6rem;
 						color: var(--blue);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>Visual</p>
 				</dt>
 				<dd class={css`
@@ -363,6 +421,9 @@
 						font-size: 1.6rem;
 						text-align: right;
 						color: var(--dark-navy);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>73</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
@@ -371,6 +432,9 @@
 						text-align: right;
 						color: var(--dark-navy);
 						opacity: 0.5;
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>/ 100</p>
 				</dd>
 			</div>

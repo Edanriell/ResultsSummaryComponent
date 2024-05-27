@@ -4,8 +4,11 @@
 
 <article class={css`
 		width: 100%;
-		@media (width > 400px) {
-			background: #00bb8f;
+		@media (width >= 768px) {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
 		}
 	`}>
 	<div class={css`
@@ -18,6 +21,12 @@
 			align-items: center;
 			z-index: 2;
 			position: relative;
+			@media (width >= 768px) {
+				padding: 3.8rem 6.1rem 5.5rem;
+				border-radius: 3.2rem;
+				box-shadow: unset;
+				flex: 0 0;
+			}
 		`}>
 		<h2 class={css`
 			font-family: var(--font-family), sans-serif;
@@ -26,6 +35,10 @@
 			text-align: center;
 			color: var(--light-blue);
 			margin-bottom: 2.4rem;
+			@media (width >= 768px) {
+				font-size: 2.4rem;
+				margin-bottom: 3.5rem;
+			}
 		`}>Your Result</h2>
 		<div class={css`
 			width: 14rem;
@@ -33,18 +46,47 @@
 			border-radius: 100%;
 			position: relative;
 			margin-bottom: 2.4rem;
+			@media (width >= 768px) {
+				width: 20rem;
+				height: 20rem;
+				margin-bottom: 2.8rem;
+			}
 		`}>
 			<svg
-					class={css`
-						position: absolute;
-						top: 0;
-						left: 0;
-						z-index: 1;
-					`}
-					width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+				class={css`
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 1;
+					@media (width >= 768px) {
+						display: none;
+					}
+				`}
+				width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
 				<defs>
 					<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#4D21C9" />
+						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
+						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg
+				class={css`
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 1;
+					display: none;
+					@media (width >= 768px) {
+						display: block;
+					}
+				`}
+				width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
+				<defs>
+					<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
 						<stop stop-color="#4D21C9" />
 						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
 						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
@@ -67,6 +109,10 @@
 					line-height: 129%;
 					text-align: center;
 					color: var(--white);
+					@media (width >= 768px) {
+						font-size: 7.2rem;
+						line-height: 100%;
+					}
 				`}>76</p>
 				<p class={css`
 					font-family: var(--font-family), sans-serif;
@@ -74,6 +120,9 @@
 					font-size: 16px;
 					color: var(--light-blue);
 					opacity: 0.52;
+					@media (width >= 768px) {
+						font-size: 1.8rem;
+					}
 				`}>of 100</p>
 			</div>
 		</div>
@@ -84,6 +133,10 @@
 			text-align: center;
 			color: var(--white);
 			margin-bottom: 0.8rem;
+			@media (width >= 768px) {
+				font-size: 3.2rem;
+				margin-bottom: 1.4rem;
+			}
 		`}>Great</p>
 		<p class={css`
 			font-family: var(--font-family), sans-serif;
@@ -91,14 +144,26 @@
 			font-size: 16px;
 			text-align: center;
 			color: var(--light-blue);
+			@media (width >= 768px) {
+				font-size: 1.8rem;
+				min-width: 26rem;
+			}
 		`}>Your performance exceed 65% of the people conducting the test here!</p>
 	</div>
 	<div class={css`
 		background: var(--white);
-		padding: 5.5rem 3rem 3rem;
-		margin-top: -3.1rem;
+		padding: 5.6rem 3rem 3rem;
+		margin-top: -3.2rem;
 		z-index: 1;
 		position: relative;
+		@media (width >= 768px) {
+			padding: 3.8rem 4rem 4.6rem 7.2rem;
+			margin-top: unset;
+			margin-left: -3.2rem;
+			box-shadow: 0 30px 60px 0 rgba(61, 108, 236, 0.15);
+			border-radius: 0 3.2rem 3.2rem 0;
+			flex: 0 0;
+		}
 	`}>
 		<p class={css`
 			font-family: var(--font-family), sans-serif;
@@ -107,12 +172,20 @@
 			color: var(--dark-navy);
 			margin-bottom: 2.4rem;
 			text-align: left;
+			@media (width >= 768px) {
+				font-size: 2.4rem;
+				margin-bottom: 2.8rem;
+			}
 		`}>Summary</p>
 		<dl class={css`
 			display: flex;
 			flex-direction: column;
 			row-gap: 1.6rem;
 			margin-bottom: 2.4rem;
+			@media (width >= 768px) {
+				min-width: 28.8rem;
+				margin-bottom: 4.1rem;
+			}
 		`}>
 			<div class={css`
 				border-radius: 1.2rem;
@@ -124,6 +197,9 @@
 				justify-content: space-between;
 				padding: 1.6rem 1.7rem 1.8rem;
 				flex-wrap: wrap;
+				@media (width >= 768px) {
+					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+				}
 			`}>
 				<dt class={css`
 					display: flex;
@@ -139,6 +215,9 @@
 						font-weight: 500;
 						font-size: 1.6rem;
 						color: var(--red);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>Reaction</p>
 				</dt>
 				<dd class={css`
@@ -153,6 +232,9 @@
 						font-size: 1.6rem;
 						text-align: right;
 						color: var(--dark-navy);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>80</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
@@ -161,6 +243,9 @@
 						text-align: right;
 						color: var(--dark-navy);
 						opacity: 0.5;
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>/ 100</p>
 				</dd>
 			</div>
@@ -174,6 +259,9 @@
 				justify-content: space-between;
 				padding: 1.6rem 1.7rem 1.8rem;
 				flex-wrap: wrap;
+				@media (width >= 768px) {
+					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+				}
 			`}>
 				<dt class={css`
 					display: flex;
@@ -191,6 +279,9 @@
 						font-weight: 500;
 						font-size: 1.6rem;
 						color: var(--yellow);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>Memory</p>
 				</dt>
 				<dd class={css`
@@ -205,6 +296,9 @@
 						font-size: 1.6rem;
 						text-align: right;
 						color: var(--dark-navy);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>92</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
@@ -213,6 +307,9 @@
 						text-align: right;
 						color: var(--dark-navy);
 						opacity: 0.5;
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>/ 100</p>
 				</dd>
 			</div>
@@ -226,6 +323,9 @@
 				justify-content: space-between;
 				padding: 1.6rem 1.7rem 1.8rem;
 				flex-wrap: wrap;
+				@media (width >= 768px) {
+					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+				}
 			`}>
 				<dt class={css`
 					display: flex;
@@ -241,6 +341,9 @@
 						font-weight: 500;
 						font-size: 1.6rem;
 						color: var(--green);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>Verbal</p>
 				</dt>
 				<dd class={css`
@@ -255,6 +358,9 @@
 						font-size: 1.6rem;
 						text-align: right;
 						color: var(--dark-navy);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>61</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
@@ -263,6 +369,9 @@
 						text-align: right;
 						color: var(--dark-navy);
 						opacity: 0.5;
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>/ 100</p>
 				</dd>
 			</div>
@@ -276,6 +385,9 @@
 				justify-content: space-between;
 				padding: 1.6rem 1.7rem 1.8rem;
 				flex-wrap: wrap;
+				@media (width >= 768px) {
+					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+				}
 			`}>
 				<dt class={css`
 					display: flex;
@@ -292,6 +404,9 @@
 						font-weight: 500;
 						font-size: 1.6rem;
 						color: var(--blue);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>Visual</p>
 				</dt>
 				<dd class={css`
@@ -306,6 +421,9 @@
 						font-size: 1.6rem;
 						text-align: right;
 						color: var(--dark-navy);
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>73</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
@@ -314,6 +432,9 @@
 						text-align: right;
 						color: var(--dark-navy);
 						opacity: 0.5;
+						@media (width >= 768px) {
+							font-size: 1.8rem;
+						}
 					`}>/ 100</p>
 				</dd>
 			</div>

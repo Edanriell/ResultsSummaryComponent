@@ -7,6 +7,9 @@
 <section class={css`
 		align-self: flex-start;
 		width: 100%;
+		@media (width >= 768px) {
+			align-self: center;
+		}
 	`}>
 	<h1 class="visually-hidden">Results summary component</h1>
 	<ResultsSummaryCard />

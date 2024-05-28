@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { css } from "@emotion/css";
 
 	import { ResultsSummaryCard } from "@entities/results/ui";

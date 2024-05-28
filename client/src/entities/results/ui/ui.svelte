@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { css } from "@emotion/css";
 
 	import { Button } from "@shared/ui/button";
@@ -444,4 +444,3 @@
 		<Button />
 	</div>
 </article>
-

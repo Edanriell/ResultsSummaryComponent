@@ -441,6 +441,6 @@
 				</dd>
 			</div>
 		</dl>
-		<Button />
+		<Button>Continue</Button>
 	</div>
 </article>

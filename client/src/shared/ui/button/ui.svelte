@@ -8,7 +8,7 @@
 		gsap.to(buttonElement, {
 			duration: 0.25,
 			scale: 1.05,
-			ease: "power1"
+			ease: "power2"
 		});
 	}
 
@@ -16,43 +16,51 @@
 		gsap.to(buttonElement, {
 			duration: 0.25,
 			scale: 0.95,
-			ease: "power1"
+			ease: "power2"
 		});
 	}
 
 	const handleMouseEnter  = () => {
+		gsap.set(buttonElement, {
+			background: "linear-gradient(180deg, #303b59 0%, #303b59 0.01%, #303b59 100%)"
+		})
+
 		gsap.to(buttonElement, {
-			backgroundColor: "linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%)",
+			background: "linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%)",
 			duration: 0.25,
 			scale: 1.05,
-			ease: "power1"
+			ease: "power2"
 		});
 	}
 
 	const handleMouseLeave  = () => {
 		gsap.to(buttonElement, {
-			backgroundColor: "#303b59",
+			background: "linear-gradient(180deg, #303b59 0%, #303b59 0.01%, #303b59 100%)",
 			duration: 0.25,
 			scale: 1,
-			ease: "power1"
+			ease: "power2"
 		});
 	}
 
 	const handleTouchStart = () => {
+		gsap.set(buttonElement, {
+			background: "linear-gradient(180deg, #303b59 0%, #303b59 0.01%, #303b59 100%)"
+		})
+
 		gsap.to(buttonElement, {
-			backgroundColor: "linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%)",
+			background: "linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%)",
 			duration: 0.25,
 			scale: 0.95,
-			ease: "power1"
+			ease: "power2"
 		});
 	};
 
 	const handleTouchEnd = () => {
 		gsap.to(buttonElement, {
-			backgroundColor: "#303b59",
+			background: "linear-gradient(180deg, #303b59 0%, #303b59 0.01%, #303b59 100%)",
 			duration: 0.25,
 			scale: 1,
-			ease: "power1"
+			ease: "power2"
 		});
 	};
 </script>
@@ -79,5 +87,5 @@
 	on:mouseleave={handleMouseLeave}
 	on:touchstart={handleTouchStart}
 	on:touchend={handleTouchEnd}>
-	Continue
+	<slot />
 </button>

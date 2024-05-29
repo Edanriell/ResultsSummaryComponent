@@ -1,8 +1,18 @@
 <script lang="ts">
 	import { css } from "@emotion/css";
+	import { onMount } from "svelte";
 
 	import { Button } from "@shared/ui/button";
 	import { Icon } from "@shared/ui/icon";
+	import { getResultQuery } from "@entities/results/api";
+	import { type Result } from "@entities/results/model";
+
+	let summmaryResult: Result;
+
+	onMount(async () => {
+		const { result } = await getResultQuery();
+		summmaryResult = result;
+	})
 </script>
 
 <article class={css`
@@ -236,7 +246,13 @@
 						@media (width >= 768px) {
 							font-size: 1.8rem;
 						}
-					`}>80</p>
+					`}>
+						{#if summmaryResult}
+							{summmaryResult.reactionScore}
+							{:else }
+							Loading
+						{/if}
+					</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
@@ -296,7 +312,13 @@
 						@media (width >= 768px) {
 							font-size: 1.8rem;
 						}
-					`}>92</p>
+					`}>
+						{#if summmaryResult}
+							{summmaryResult.memoryScore}
+						{:else }
+							Loading
+						{/if}
+					</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
@@ -356,7 +378,13 @@
 						@media (width >= 768px) {
 							font-size: 1.8rem;
 						}
-					`}>61</p>
+					`}>
+						{#if summmaryResult}
+							{summmaryResult.verbalScore}
+						{:else }
+							Loading
+						{/if}
+					</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
@@ -416,7 +444,13 @@
 						@media (width >= 768px) {
 							font-size: 1.8rem;
 						}
-					`}>73</p>
+					`}>
+						{#if summmaryResult}
+							{summmaryResult.visualScore}
+						{:else }
+							Loading
+						{/if}
+					</p>
 					<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;

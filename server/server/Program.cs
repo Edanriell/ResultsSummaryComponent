@@ -1,5 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// Without this code you can't do external api calls
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy => { policy.WithOrigins("http://localhost:5173", "https://localhost:5173"); });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -12,6 +19,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Without this code you can't do external api calls
+app.UseCors();
 
 var results = new List<Result>
 {
@@ -34,7 +44,10 @@ app.MapGet("/result", () =>
         var random = new Random();
         var randomIndex = random.Next(results.Count);
         var randomResult = results[randomIndex];
-        return randomResult;
+        return new ResultDto
+        {
+            Result = randomResult
+        };
     })
     .WithName("Result")
     .WithOpenApi();
@@ -47,4 +60,9 @@ public class Result
     public byte MemoryScore { get; set; }
     public byte VerbalScore { get; set; }
     public byte VisualScore { get; set; }
+}
+
+public class ResultDto
+{
+    public Result Result { get; set; } = null!;
 }

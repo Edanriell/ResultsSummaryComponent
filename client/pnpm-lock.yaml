@@ -17,6 +17,9 @@ dependencies:
   sass:
     specifier: ^1.77.2
     version: 1.77.2
+  svelte-skeleton:
+    specifier: ^1.3.1
+    version: 1.3.1
 
 devDependencies:
   '@fontsource/fira-mono':
@@ -2528,6 +2531,10 @@ packages:
       svelte: 4.2.17
       typescript: 5.4.5
     dev: true
+
+  /svelte-skeleton@1.3.1:
+    resolution: {integrity: sha512-/dVf4Am8Rolo9DjQxmy8X8xXSKDzZWyGjf84CekWdQqvP+Y57lW1O8dxHUxqT1bGeER8ZMAOuyGEzx+gADEVWg==}
+    dev: false
 
   /svelte@4.2.17:
     resolution: {integrity: sha512-N7m1YnoXtRf5wya5Gyx3TWuTddI4nAyayyIWFojiWV5IayDYNV5i2mRp/7qNGol4DtxEYxljmrbgp1HM6hUbmQ==}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Skeleton from "svelte-skeleton/Skeleton.svelte";
 	import { css } from "@emotion/css";
 	import { onMount } from "svelte";
 
@@ -7,11 +8,11 @@
 	import { getResultQuery } from "@entities/results/api";
 	import { type Result } from "@entities/results/model";
 
-	let summmaryResult: Result;
+	let summaryResult: Result;
 
 	onMount(async () => {
 		const { result } = await getResultQuery();
-		summmaryResult = result;
+		summaryResult = result;
 	})
 </script>
 
@@ -178,7 +179,8 @@
 			flex: 0 0;
 		}
 	`}>
-		<p class={css`
+		{#if summaryResult}
+			<p class={css`
 			font-family: var(--font-family), sans-serif;
 			font-weight: 700;
 			font-size: 18px;
@@ -190,6 +192,24 @@
 				margin-bottom: 2.8rem;
 			}
 		`}>Summary</p>
+		{:else}
+			<div class={css`
+				margin-bottom: 2.4rem;
+				border-radius: 1.2rem;
+				width: 100%;
+				height: 2.7rem;
+				overflow: hidden;
+				@media (width >= 768px) {
+					margin-bottom: 2.8rem;
+					width: 28.799rem;
+					height: 3.6rem;
+				}
+			`}>
+				<Skeleton width="100%" height="100%" >
+					<rect width="100%" height="100%"/>
+				</Skeleton>
+			</div>
+		{/if}
 		<dl class={css`
 			display: flex;
 			flex-direction: column;
@@ -200,7 +220,8 @@
 				margin-bottom: 4.1rem;
 			}
 		`}>
-			<div class={css`
+			{#if summaryResult}
+				<div class={css`
 				border-radius: 1.2rem;
 				background: var(--red-95-percent-white);
 				width: 100%;
@@ -214,14 +235,14 @@
 					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
 				}
 			`}>
-				<dt class={css`
+					<dt class={css`
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					column-gap: 1.2rem;
 				`}>
-					<Icon iconType="flash" />
-					<p class={css`
+						<Icon iconType="flash" />
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 500;
 						font-size: 1.6rem;
@@ -230,14 +251,14 @@
 							font-size: 1.8rem;
 						}
 					`}>Reaction</p>
-				</dt>
-				<dd class={css`
+					</dt>
+					<dd class={css`
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					column-gap: 0.8rem;
 				`}>
-					<p class={css`
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
 						font-size: 1.6rem;
@@ -246,14 +267,9 @@
 						@media (width >= 768px) {
 							font-size: 1.8rem;
 						}
-					`}>
-						{#if summmaryResult}
-							{summmaryResult.reactionScore}
-							{:else }
-							Loading
-						{/if}
-					</p>
-					<p class={css`
+					`}>{summaryResult.reactionScore}
+						</p>
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
 						font-size: 1.6rem;
@@ -264,9 +280,26 @@
 							font-size: 1.8rem;
 						}
 					`}>/ 100</p>
-				</dd>
-			</div>
-			<div class={css`
+					</dd>
+				</div>
+			{:else}
+				<div class={css`
+					border-radius: 1.2rem;
+					overflow: hidden;
+					width: 100%;
+					height: 5.798rem;
+					@media (width >= 768px) {
+						width: 28.799rem;
+						height: 5.898rem;
+					}
+				`}>
+					<Skeleton width="100%" height="100%" >
+						<rect width="100%" height="100%"/>
+					</Skeleton>
+				</div>
+			{/if}
+			{#if summaryResult}
+				<div class={css`
 				border-radius: 1.2rem;
 				background: var(--yellow-95-percent-white);
 				width: 100%;
@@ -280,14 +313,14 @@
 					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
 				}
 			`}>
-				<dt class={css`
+					<dt class={css`
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					column-gap: 1.2rem;
 				`}>
-					<Icon iconType="brain" />
-					<p class={css`
+						<Icon iconType="brain" />
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 500;
 						font-size: 1.6rem;
@@ -296,14 +329,14 @@
 							font-size: 1.8rem;
 						}
 					`}>Memory</p>
-				</dt>
-				<dd class={css`
+					</dt>
+					<dd class={css`
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					column-gap: 0.8rem;
 				`}>
-					<p class={css`
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
 						font-size: 1.6rem;
@@ -312,14 +345,9 @@
 						@media (width >= 768px) {
 							font-size: 1.8rem;
 						}
-					`}>
-						{#if summmaryResult}
-							{summmaryResult.memoryScore}
-						{:else }
-							Loading
-						{/if}
-					</p>
-					<p class={css`
+					`}>{summaryResult.memoryScore}
+						</p>
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
 						font-size: 1.6rem;
@@ -330,9 +358,26 @@
 							font-size: 1.8rem;
 						}
 					`}>/ 100</p>
-				</dd>
-			</div>
-			<div class={css`
+					</dd>
+				</div>
+			{:else}
+				<div class={css`
+					border-radius: 1.2rem;
+					overflow: hidden;
+					width: 100%;
+					height: 5.798rem;
+					@media (width >= 768px) {
+						width: 28.799rem;
+						height: 5.898rem;
+					}
+				`}>
+					<Skeleton width="100%" height="100%" >
+						<rect width="100%" height="100%"/>
+					</Skeleton>
+				</div>
+			{/if}
+			{#if summaryResult}
+				<div class={css`
 				border-radius: 1.2rem;
 				background: var(--green-95-percent-white);
 				width: 100%;
@@ -346,14 +391,14 @@
 					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
 				}
 			`}>
-				<dt class={css`
+					<dt class={css`
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					column-gap: 1.2rem;
 				`}>
-					<Icon iconType="chat" />
-					<p  class={css`
+						<Icon iconType="chat" />
+						<p  class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 500;
 						font-size: 1.6rem;
@@ -362,14 +407,14 @@
 							font-size: 1.8rem;
 						}
 					`}>Verbal</p>
-				</dt>
-				<dd class={css`
+					</dt>
+					<dd class={css`
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					column-gap: 0.8rem;
 				`}>
-					<p class={css`
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
 						font-size: 1.6rem;
@@ -378,14 +423,9 @@
 						@media (width >= 768px) {
 							font-size: 1.8rem;
 						}
-					`}>
-						{#if summmaryResult}
-							{summmaryResult.verbalScore}
-						{:else }
-							Loading
-						{/if}
-					</p>
-					<p class={css`
+					`}>{summaryResult.verbalScore}
+						</p>
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
 						font-size: 1.6rem;
@@ -396,9 +436,26 @@
 							font-size: 1.8rem;
 						}
 					`}>/ 100</p>
-				</dd>
-			</div>
-			<div class={css`
+					</dd>
+				</div>
+			{:else}
+				<div class={css`
+					border-radius: 1.2rem;
+					overflow: hidden;
+					width: 100%;
+					height: 5.798rem;
+					@media (width >= 768px) {
+						width: 28.799rem;
+						height: 5.898rem;
+					}
+				`}>
+					<Skeleton width="100%" height="100%" >
+						<rect width="100%" height="100%"/>
+					</Skeleton>
+				</div>
+			{/if}
+			{#if summaryResult}
+				<div class={css`
 				border-radius: 1.2rem;
 				background: var(--blue-95-percent-white);
 				width: 100%;
@@ -412,14 +469,14 @@
 					padding: 1.6rem 1.6rem 1.6rem 1.6rem;
 				}
 			`}>
-				<dt class={css`
+					<dt class={css`
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					column-gap: 1.2rem;
 				`}>
-					<Icon iconType="eye" />
-					<p  class={css`
+						<Icon iconType="eye" />
+						<p  class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 500;
 						font-size: 1.6rem;
@@ -428,14 +485,14 @@
 							font-size: 1.8rem;
 						}
 					`}>Visual</p>
-				</dt>
-				<dd class={css`
+					</dt>
+					<dd class={css`
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					column-gap: 0.8rem;
 				`}>
-					<p class={css`
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
 						font-size: 1.6rem;
@@ -444,14 +501,9 @@
 						@media (width >= 768px) {
 							font-size: 1.8rem;
 						}
-					`}>
-						{#if summmaryResult}
-							{summmaryResult.visualScore}
-						{:else }
-							Loading
-						{/if}
-					</p>
-					<p class={css`
+					`}>{summaryResult.visualScore}
+						</p>
+						<p class={css`
 						font-family: var(--font-family), sans-serif;
 						font-weight: 700;
 						font-size: 1.6rem;
@@ -462,9 +514,42 @@
 							font-size: 1.8rem;
 						}
 					`}>/ 100</p>
-				</dd>
-			</div>
+					</dd>
+				</div>
+			{:else}
+				<div class={css`
+					border-radius: 1.2rem;
+					overflow: hidden;
+					width: 100%;
+					height: 5.798rem;
+					@media (width >= 768px) {
+						width: 28.799rem;
+						height: 5.898rem;
+					}
+				`}>
+					<Skeleton width="100%" height="100%" >
+						<rect width="100%" height="100%"/>
+					</Skeleton>
+				</div>
+			{/if}
 		</dl>
-		<Button>Continue</Button>
+		{#if summaryResult}
+			<Button>Continue</Button>
+		{:else}
+			<div class={css`
+				border-radius: 12.8rem;
+				overflow: hidden;
+				width: 100%;
+				height: 6.18rem;
+				@media (width >= 768px) {
+					width: 28.799rem;
+					height: 6.18rem;
+				}
+			`}>
+				<Skeleton width="100%" height="100%">
+					<rect width="100%" height="100%"/>
+				</Skeleton>
+			</div>
+		{/if}
 	</div>
 </article>

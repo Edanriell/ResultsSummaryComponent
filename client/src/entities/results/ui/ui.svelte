@@ -3,16 +3,19 @@
 	import { css } from "@emotion/css";
 	import { onMount } from "svelte";
 
-	import { Button } from "@shared/ui/button";
-	import { Icon } from "@shared/ui/icon";
 	import { getResultQuery } from "@entities/results/api";
 	import { type Result } from "@entities/results/model";
+	import { Button } from "@shared/ui/button";
+	import { Icon } from "@shared/ui/icon";
+	import { calculateAverageScore } from "@shared/lib/functions";
 
 	let summaryResult: Result;
+	let averageScore: number;
 
 	onMount(async () => {
 		const { result } = await getResultQuery();
 		summaryResult = result;
+		averageScore = calculateAverageScore(summaryResult);
 	})
 </script>
 
@@ -127,7 +130,7 @@
 						font-size: 7.2rem;
 						line-height: 100%;
 					}
-				`}>76</p>
+				`}>{averageScore}</p>
 				<p class={css`
 					font-family: var(--font-family), sans-serif;
 					font-weight: 700;

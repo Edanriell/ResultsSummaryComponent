@@ -1,15 +1,13 @@
-import type { Result } from "@entities/results/model";
+export const calculateAverageValue = (obj: unknown): number => {
+	let averageValue: number = 0;
 
-export const calculateAverageScore = (result: Result): number => {
-	let averageScore: number = 0;
-
-	for (const score in result) {
-		averageScore += (result as never)[score] as unknown as number;
+	for (const prop in obj as unknown as object) {
+		averageValue += (obj as never)[prop] as unknown as number;
 	}
 
-	const resultPropertyCount = Object.keys(result).length;
+	const objPropertyCount = Object.keys(obj as never).length;
 
-	averageScore = Math.round(averageScore / resultPropertyCount);
+	averageValue = Math.round(averageValue / objPropertyCount);
 
-	return averageScore;
+	return averageValue;
 };

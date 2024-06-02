@@ -4,57 +4,42 @@
 	import { onMount } from "svelte";
 
 	import { getResultQuery } from "@entities/results/api";
-	import { type Result } from "@entities/results/model";
+	import {
+		type Result,
+		updateResultComponentContent,
+		calculateAverageScore
+	} from "@entities/results/model";
 	import { Button } from "@shared/ui/button";
 	import { Icon } from "@shared/ui/icon";
-	import { calculateAverageScore } from "@shared/lib/functions";
 
 	let summaryResult: Result;
 	let averageScore: number;
 	let resultComponentBackgroundColor: string;
 	let resultComponentResultMessage: string;
 	let resultComponentScoreResultMessage: string;
-	let resultComponentTextColor: string;
-	// Need adjust colors for text
-	// Add greenish, yellowish etc. color shades
+	let resultComponentTextColorMain: string;
+	let resultComponentTextColorAccent: string;
 
 	onMount(async () => {
 		const { result } = await getResultQuery();
 		summaryResult = result;
 		averageScore = calculateAverageScore(summaryResult);
-		updateResultComponentContent();
+		const {
+			componentBackgroundColor,
+			componentResultMessage,
+			componentScoreResultMessage,
+			componentTextColorMain,
+			componentTextColorAccent
+		} = updateResultComponentContent(averageScore);
+
+		resultComponentBackgroundColor = componentBackgroundColor;
+		resultComponentResultMessage = componentResultMessage;
+		resultComponentScoreResultMessage = componentScoreResultMessage;
+		resultComponentTextColorMain = componentTextColorMain;
+		resultComponentTextColorAccent = componentTextColorAccent;
 	})
 
-	const updateResultComponentContent = () => {
-		// Function must return object, so it can be putted in models {}
 
-		if (averageScore <= 20) {
-			resultComponentBackgroundColor = 'linear-gradient(180deg, #ff7f7f 0%, #ff4c4c 0.01%, #e93f3f 100%)';
-			resultComponentResultMessage = 'Your performance is below average. Keep practicing!';
-			resultComponentScoreResultMessage = 'Needs Improvement';
-			resultComponentTextColor = '#fff';
-		} else if (averageScore <= 40) {
-			resultComponentBackgroundColor = 'linear-gradient(180deg, #ffaf7f 0%, #ff8c4c 0.01%, #e96f3f 100%)';
-			resultComponentResultMessage = "Your performance is average. There's room for improvement.";
-			resultComponentScoreResultMessage = 'Average';
-			resultComponentTextColor = '#fff';
-		} else if (averageScore <= 60) {
-			resultComponentBackgroundColor = 'linear-gradient(180deg, #fff75f 0%, #ffd94c 0.01%, #e9b93f 100%)';
-			resultComponentResultMessage = 'Your performance is above average. Keep up the good work!';
-			resultComponentScoreResultMessage = 'Great';
-			resultComponentTextColor = '#000';
-		} else if (averageScore <= 80) {
-			resultComponentBackgroundColor = 'linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%)';
-			resultComponentResultMessage = 'Your performance exceeds 65% of the people conducting the test here!';
-			resultComponentScoreResultMessage = 'Excellent';
-			resultComponentTextColor = '#cac9ff';
-		} else {
-			resultComponentBackgroundColor = 'linear-gradient(180deg, #7fffaf 0%, #4cff8c 0.01%, #3fe96f 100%)';
-			resultComponentResultMessage = "Your performance is exceptional! You're among the top performers.";
-			resultComponentScoreResultMessage = 'Outstanding';
-			resultComponentTextColor = '#000';
-		}
-	};
 </script>
 
 <article class={css`
@@ -70,7 +55,7 @@
 			padding: 2.4rem 3rem 4rem;
 			border-radius: 0 0 3.2rem 3.2rem;
 			box-shadow: 0 30px 60px 0 rgba(61, 108, 236, 0.15);
-			//background: linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%);
+			// background: linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%);
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -83,7 +68,7 @@
 				flex: 0 0;
 			}
 		`}>
-		<h2 style="color: {resultComponentTextColor}" class={css`
+		<h2 style="color: {resultComponentTextColorAccent}" class={css`
 			font-family: var(--font-family), sans-serif;
 			font-weight: 700;
 			font-size: 1.8rem;
@@ -358,7 +343,7 @@
 				height: 100%;
 				z-index: 2;
 			`}>
-				<p class={css`
+				<p style="color: {resultComponentTextColorMain}" class={css`
 					font-family: var(--font-family), sans-serif;
 					font-weight: 800;
 					font-size: 56px;
@@ -370,11 +355,11 @@
 						line-height: 100%;
 					}
 				`}>{averageScore}</p>
-				<p class={css`
+				<p style="color: {resultComponentTextColorAccent}" class={css`
 					font-family: var(--font-family), sans-serif;
 					font-weight: 700;
 					font-size: 16px;
-					color: var(--light-blue);
+					// color: var(--light-blue);
 					opacity: 0.52;
 					@media (width >= 768px) {
 						font-size: 1.8rem;
@@ -382,7 +367,7 @@
 				`}>of 100</p>
 			</div>
 		</div>
-		<p class={css`
+		<p style="color: {resultComponentTextColorMain}" class={css`
 			font-family: var(--font-family), sans-serif;
 			font-weight: 700;
 			font-size: 24px;
@@ -394,7 +379,7 @@
 				margin-bottom: 1.4rem;
 			}
 		`}>{resultComponentScoreResultMessage}</p>
-		<p style="color: {resultComponentTextColor}" class={css`
+		<p style="color: {resultComponentTextColorAccent}" class={css`
 			font-family: var(--font-family), sans-serif;
 			font-weight: 500;
 			font-size: 16px;
@@ -404,7 +389,7 @@
 				font-size: 1.8rem;
 				min-width: 26rem;
 			}
-		`}>Your performance exceed 65% of the people conducting the test here!</p>
+		`}>{resultComponentResultMessage}</p>
 	</div>
 	<div class={css`
 		background: var(--white);

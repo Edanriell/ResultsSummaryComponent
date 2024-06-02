@@ -38,8 +38,6 @@
 		resultComponentTextColorMain = componentTextColorMain;
 		resultComponentTextColorAccent = componentTextColorAccent;
 	})
-
-
 </script>
 
 <article class={css`
@@ -51,7 +49,8 @@
 			justify-content: center;
 		}
 	`}>
-	<div style="background: {resultComponentBackgroundColor}" class={css`
+	{#if summaryResult}
+		<div style="background: {resultComponentBackgroundColor}" class={css`
 			padding: 2.4rem 3rem 4rem;
 			border-radius: 0 0 3.2rem 3.2rem;
 			box-shadow: 0 30px 60px 0 rgba(61, 108, 236, 0.15);
@@ -68,7 +67,7 @@
 				flex: 0 0;
 			}
 		`}>
-		<h2 style="color: {resultComponentTextColorAccent}" class={css`
+			<h2 style="color: {resultComponentTextColorAccent}" class={css`
 			font-family: var(--font-family), sans-serif;
 			font-weight: 700;
 			font-size: 1.8rem;
@@ -80,7 +79,7 @@
 				margin-bottom: 3.5rem;
 			}
 		`}>Your Result</h2>
-		<div class={css`
+			<div class={css`
 			width: 14rem;
 			height: 14rem;
 			border-radius: 100%;
@@ -92,9 +91,9 @@
 				margin-bottom: 2.8rem;
 			}
 		`}>
-			{#if averageScore <= 20}
-				<svg
-					class={css`
+				{#if averageScore <= 20}
+					<svg
+							class={css`
 				    position: absolute;
 				    top: 0;
 				    left: 0;
@@ -103,17 +102,17 @@
 				        display: none;
 				    }
 				`}
-					width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
-					<defs>
-						<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#ff7f7f" />
-							<stop offset="1" stop-color="#e93f3f" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
-				<svg
-					class={css`
+							width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
+						<defs>
+							<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#ff7f7f" />
+								<stop offset="1" stop-color="#e93f3f" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
+					<svg
+							class={css`
 					    position: absolute;
 					    top: 0;
 					    left: 0;
@@ -123,18 +122,18 @@
 					        display: block;
 					    }
                     `}
-						width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
-					<defs>
-						<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#ff7f7f" />
-							<stop offset="1" stop-color="#e93f3f" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
+							width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
+						<defs>
+							<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#ff7f7f" />
+								<stop offset="1" stop-color="#e93f3f" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
 				{:else if averageScore <= 40 }
-				<svg
-					class={css`
+					<svg
+							class={css`
 				        position: absolute;
 				        top: 0;
 				        left: 0;
@@ -143,17 +142,17 @@
 				            display: none;
 				        }
 			    `}
-					width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
-					<defs>
-						<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#ffaf7f" />
-							<stop offset="1" stop-color="#e96f3f" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
-				<svg
-				class={css`
+							width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
+						<defs>
+							<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#ffaf7f" />
+								<stop offset="1" stop-color="#e96f3f" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
+					<svg
+							class={css`
 				    position: absolute;
 				    top: 0;
 				    left: 0;
@@ -163,18 +162,18 @@
 				        display: block;
 				    }
     			`}
-					width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
-					<defs>
-						<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#ffaf7f" />
-							<stop offset="1" stop-color="#e96f3f" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
+							width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
+						<defs>
+							<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#ffaf7f" />
+								<stop offset="1" stop-color="#e96f3f" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
 				{:else if averageScore <= 60}
-				<svg
-				class={css`
+					<svg
+							class={css`
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -183,17 +182,17 @@
 					    display: none;
 					}
 				`}
-					width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
-					<defs>
-						<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#fff75f" />
-							<stop offset="1" stop-color="#e9b93f" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
-				<svg
-				class={css`
+							width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
+						<defs>
+							<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#fff75f" />
+								<stop offset="1" stop-color="#e9b93f" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
+					<svg
+							class={css`
 				    position: absolute;
 				    top: 0;
 				    left: 0;
@@ -203,18 +202,18 @@
 				        display: block;
 				    }
     			`}
-					width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
-					<defs>
-						<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#fff75f" />
-							<stop offset="1" stop-color="#e9b93f" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
+							width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
+						<defs>
+							<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#fff75f" />
+								<stop offset="1" stop-color="#e9b93f" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
 				{:else if averageScore <= 80}
-				<svg
-				class={css`
+					<svg
+							class={css`
 			        position: absolute;
 			        top: 0;
 			        left: 0;
@@ -223,17 +222,17 @@
 			            display: none;
 			        }
 			    `}
-					width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
-					<defs>
-						<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#75f" />
-							<stop offset="1" stop-color="#2f2ce9" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
-				<svg
-				class={css`
+							width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
+						<defs>
+							<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#75f" />
+								<stop offset="1" stop-color="#2f2ce9" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
+					<svg
+							class={css`
 			        position: absolute;
 			        top: 0;
 			        left: 0;
@@ -243,18 +242,18 @@
 			            display: block;
 			        }
    				 `}
-					width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
-					<defs>
-						<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#75f" />
-							<stop offset="1" stop-color="#2f2ce9" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
+							width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
+						<defs>
+							<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#75f" />
+								<stop offset="1" stop-color="#2f2ce9" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
 				{:else}
-				<svg
-				class={css`
+					<svg
+							class={css`
 			        position: absolute;
 			        top: 0;
 			        left: 0;
@@ -263,17 +262,17 @@
 			            display: none;
 			        }
 			    `}
-					width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
-					<defs>
-						<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#7fffaf" />
-							<stop offset="1" stop-color="#3fe96f" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
-				<svg
-				class={css`
+							width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
+						<defs>
+							<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#7fffaf" />
+								<stop offset="1" stop-color="#3fe96f" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
+					<svg
+							class={css`
 				    position: absolute;
 				    top: 0;
 				    left: 0;
@@ -283,18 +282,18 @@
 				        display: block;
 				    }
    				 `}
-					width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
-					<defs>
-						<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-							<stop stop-color="#7fffaf" />
-							<stop offset="1" stop-color="#3fe96f" stop-opacity="0" />
-						</linearGradient>
-					</defs>
-				</svg>
-			{/if}
-			<svg
-				class={css`
+							width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
+						<defs>
+							<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#7fffaf" />
+								<stop offset="1" stop-color="#3fe96f" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+					</svg>
+				{/if}
+				<svg
+						class={css`
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -303,18 +302,18 @@
 						display: none;
 					}
 				`}
-				width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
-				<defs>
-					<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
-						<stop stop-color="#4D21C9" />
-						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
-						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
-					</linearGradient>
-				</defs>
-			</svg>
-			<svg
-				class={css`
+						width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_54_23)" />
+					<defs>
+						<linearGradient id="paint0_linear_54_23" x1="70" y1="0" x2="70" y2="140" gradientUnits="userSpaceOnUse">
+							<stop stop-color="#4D21C9" />
+							<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
+							<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
+						</linearGradient>
+					</defs>
+				</svg>
+				<svg
+						class={css`
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -324,17 +323,17 @@
 						display: block;
 					}
 				`}
-				width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
-				<defs>
-					<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-						<stop stop-color="#4D21C9" />
-						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
-						<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
-					</linearGradient>
-				</defs>
-			</svg>
-			<div class={css`
+						width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="100" cy="100" r="100" fill="url(#paint0_linear_14_43)" />
+					<defs>
+						<linearGradient id="paint0_linear_14_43" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+							<stop stop-color="#4D21C9" />
+							<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
+							<stop offset="1" stop-color="#2521C9" stop-opacity="0" />
+						</linearGradient>
+					</defs>
+				</svg>
+				<div class={css`
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -343,7 +342,7 @@
 				height: 100%;
 				z-index: 2;
 			`}>
-				<p style="color: {resultComponentTextColorMain}" class={css`
+					<p style="color: {resultComponentTextColorMain}" class={css`
 					font-family: var(--font-family), sans-serif;
 					font-weight: 800;
 					font-size: 56px;
@@ -355,7 +354,7 @@
 						line-height: 100%;
 					}
 				`}>{averageScore}</p>
-				<p style="color: {resultComponentTextColorAccent}" class={css`
+					<p style="color: {resultComponentTextColorAccent}" class={css`
 					font-family: var(--font-family), sans-serif;
 					font-weight: 700;
 					font-size: 16px;
@@ -365,9 +364,9 @@
 						font-size: 1.8rem;
 					}
 				`}>of 100</p>
+				</div>
 			</div>
-		</div>
-		<p style="color: {resultComponentTextColorMain}" class={css`
+			<p style="color: {resultComponentTextColorMain}" class={css`
 			font-family: var(--font-family), sans-serif;
 			font-weight: 700;
 			font-size: 24px;
@@ -379,7 +378,7 @@
 				margin-bottom: 1.4rem;
 			}
 		`}>{resultComponentScoreResultMessage}</p>
-		<p style="color: {resultComponentTextColorAccent}" class={css`
+			<p style="color: {resultComponentTextColorAccent}" class={css`
 			font-family: var(--font-family), sans-serif;
 			font-weight: 500;
 			font-size: 16px;
@@ -390,7 +389,28 @@
 				min-width: 26rem;
 			}
 		`}>{resultComponentResultMessage}</p>
-	</div>
+		</div>
+	{:else}
+		<div class={css`
+			border-radius: 0 0 3.2rem 3.2rem;
+			box-shadow: 0 30px 60px 0 rgba(61, 108, 236, 0.15);
+			z-index: 2;
+			position: relative;
+			width: 100%;
+			height: 34.694rem;
+			overflow: hidden;
+			@media (width >= 768px) {
+				width: 38.198rem;
+				height: 53.495rem;
+				border-radius: 3.2rem;
+				box-shadow: unset;
+			}
+		`}>
+			<Skeleton width="100%" height="100%" >
+				<rect width="100%" height="100%"/>
+			</Skeleton>
+		</div>
+	{/if}
 	<div class={css`
 		background: var(--white);
 		padding: 5.6rem 3rem 3rem;

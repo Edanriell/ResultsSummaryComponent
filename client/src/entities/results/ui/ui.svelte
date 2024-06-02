@@ -132,7 +132,7 @@
 						</linearGradient>
 					</defs>
 				</svg>
-				{:else if averageScore > 20 && averageScore <= 40 }
+				{:else if averageScore <= 40 }
 				<svg
 					class={css`
 				        position: absolute;
@@ -172,7 +172,7 @@
 						</linearGradient>
 					</defs>
 				</svg>
-				{:else if averageScore > 41 && averageScore <= 60}
+				{:else if averageScore <= 60}
 				<svg
 				class={css`
 					position: absolute;
@@ -212,7 +212,7 @@
 						</linearGradient>
 					</defs>
 				</svg>
-				{:else if averageScore > 60 && averageScore <= 80}
+				{:else if averageScore <= 80}
 				<svg
 				class={css`
 			        position: absolute;
@@ -252,7 +252,7 @@
 						</linearGradient>
 					</defs>
 				</svg>
-				{:else if averageScore > 80 && averageScore <= 100}
+				{:else}
 				<svg
 				class={css`
 			        position: absolute;
